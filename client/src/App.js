@@ -1,11 +1,18 @@
 import React from 'react';
-import Home from './components/home';
+import Home from './components/Home/home';
 import { useEffect } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { AUTOLOGIN } from './reduxSlices/authSlice';
+
 const App =() => {
+  const dispatch = useDispatch();
+
   useEffect(()=>{
+    dispatch(AUTOLOGIN());
+
     axios.get("http://localhost:5000/user/getFriends",{
       params:{
         userId:"617ce19ca08f2465fa748cbf"

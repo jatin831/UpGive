@@ -18,8 +18,12 @@ const transactionSchema = new Schema({
             type: Schema.Types.ObjectId,
             required: true
         },
-        friends: [Schema.Types.ObjectId],
-        
+        friends: [
+            {
+                
+            }
+        ],
+
     },
     {
         timestamps: true,
