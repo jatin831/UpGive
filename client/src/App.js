@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from './components/home';
-import Dashboard from './components/Comp/dashboard';
+import Dashboard from './components/Header/dashboard';
 import { useEffect } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
@@ -39,7 +39,7 @@ const App =() => {
   return (
    <>
    <BrowserRouter>
-    <Home/>
+    <Dashboard/>
     </BrowserRouter>
    </> 
   )

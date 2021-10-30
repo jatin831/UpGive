@@ -2,16 +2,43 @@
     margin-top: 5rem;
 }
 
+
 .addsec{
-    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: space-evenly;
-
+    justify-content: space-between;
 }
 
 .friend{
     font-size: 25px;
     font-weight: bold;
+    margin-left: 20px;
+    margin-bottom: 5px;
 }
 
+.friends{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.message{
+    margin:auto;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: #E5E5E5;
+    align-items: left;
+    justify-content: space-around;
+}
+.btn-primary{
+    border-radius: 3rem  !important;
+    background-color: #1B559C !important;
+    color: white !important;
+    font-weight: bold !important;
+
+}

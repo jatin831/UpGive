@@ -15,6 +15,7 @@ import {
 } from "reactstrap";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const [scrolled, setScrolled] = useState(false);
   window.onscroll = () => {
     if (window.scrollY) {
@@ -36,7 +37,16 @@ const Header = () => {
           <UncontrolledDropdown nav className="p-0">
             <DropdownToggle nav caret className="py-0">
               <div className="class-avatar pe-2">
-                <Avatar style={{ height: "35px", width: "35px" }}>S</Avatar>
+                <Avatar
+                  style={{
+                    height: "35px",
+                    width: "35px",
+                    color: "black",
+                    background: "white",
+                  }}
+                >
+                  {userName?.slice(0, 1).toUpperCase()}
+                </Avatar>
               </div>
             </DropdownToggle>
             <DropdownMenu className="my-0 py-0" right>
@@ -60,7 +70,7 @@ const Header = () => {
               <DropdownItem
                 className="my-0 ml-0 pl-3"
                 onClick={() => {
-                  console.log("LOGOUT()");
+                  dispatch(LOGOUT());
                 }}
               >
                 <Link to="/" className="py-1 mx-1 logout">
