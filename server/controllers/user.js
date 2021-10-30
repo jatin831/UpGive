@@ -13,7 +13,13 @@ exports.getFriends = (req, res, next) => {
         } 
         User.find({_id: user.friends})
         .then(users => {
-            res.json({users});
+            let friendsData = users.map(user => ({
+                _id: user._id,
+                email: user.email,
+                name: user.name
+            }))
+            
+            res.json(friendsData);
         })
         .catch(err => {
             next(err);
@@ -34,6 +40,13 @@ exports.addFriend = (req, res, next) => {
             err.statusCode = 400;
             next(err);
         }
+        
+        if (friend.friends.indexOf(new ObjectId(userId)) > -1) {
+            const err = new Error("Already added as a friend.");
+            err.statusCode = 400;
+            next(err);
+        }
+
         User.findById(userId)
         .then(user => {
             if (!user) {
