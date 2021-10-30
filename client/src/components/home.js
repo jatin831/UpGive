@@ -1,7 +1,7 @@
 import React from 'react';
 import './home.css';
 import Header from './Comp/header';
-import landingVector from "../assets/landing.svg";
+import landingVector from "../assets/landing.jpg";
 import FacebookIcon from '@material-ui/icons/Facebook';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -25,7 +25,7 @@ const Home = ()=>{
                 </div>
               </div>
               <div className="col-lg-6 order-1 order-lg-2 hero-img aos-init aos-ani0 FloatImg" data-aos="fade-left">
-                <img src={landingVector} className="img-fluid animated" alt="" />
+                {/* <img src={landingVector} className="img-fluid animated" alt="" /> */}
               </div>
             </div>
           </div>
