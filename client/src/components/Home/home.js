@@ -1,7 +1,7 @@
 import React from 'react';
 import './home.css';
-import Header from './Comp/header';
-import landingVector from "../assets/landing.jpg";
+import Header from '../Header/header';
+import landingVector from "../../assets/landing.jpg";
 import FacebookIcon from '@material-ui/icons/Facebook';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import InstagramIcon from '@material-ui/icons/Instagram';
