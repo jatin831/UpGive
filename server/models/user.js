@@ -35,7 +35,13 @@ const userSchema = new Schema({
         debit: {
             type: Number,
             default: 0.0
-        }
+        },
+        transactions: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Transaction'
+            }
+        ]
     },
     {
         timestamps: true,
