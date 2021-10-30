@@ -8,8 +8,10 @@ app.use(express.json());
 app.use(cors());
 
 const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
 
 app.use('/auth', authRoutes);
+app.use('/user', userRoutes);
 
 app.use((req, res, next) => {
     const err = new Error("Not Found");

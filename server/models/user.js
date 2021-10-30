@@ -18,8 +18,24 @@ const userSchema = new Schema({
             type: Number,
             required: true
         },
-        classesEnrolled: [Number],
-        classesOwned: [Number]
+        friends: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ],
+        netBalance: {
+            type: Number,
+            default: 0.0
+        },
+        credit: {
+            type: Number,
+            default: 0.0
+        },
+        debit: {
+            type: Number,
+            default: 0.0
+        }
     },
     {
         timestamps: true,
