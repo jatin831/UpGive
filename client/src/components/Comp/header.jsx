@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 import IconButton from "@material-ui/core/IconButton";
+import LoginModal from "./loginModals";
 import "./header.css";
+import { useDispatch, useSelector } from "react-redux";
+import { LOGOUT, selectUserData } from "../../reduxSlices/authSlice";
 import Avatar from "@material-ui/core/Avatar";
 import {
   UncontrolledDropdown,
@@ -20,8 +23,14 @@ const Header = () => {
       setScrolled(false);
     }
   };
+  const [show, setShow] = useState(false);
+  const toggle = () => setShow((prevState) => !prevState);
+  const storeData = useSelector(selectUserData);
+  const userName = storeData.userName;
+  const token = storeData.token;
+  const userEmail = storeData.userEmail;
   const ConditionalBtn = () => {
-    if (false) {
+    if (token) {
       return (
         <li className="nav-item text-start">
           <UncontrolledDropdown nav className="p-0">
@@ -36,7 +45,7 @@ const Header = () => {
                   className="py-1 comp-nav mx-1 text-secondary fw-500"
                   disabled
                 >
-                  Sarthak
+                  {userName}
                 </div>
               </DropdownItem>
               <DropdownItem className="my-0 ml-0 pl-3">
@@ -44,14 +53,14 @@ const Header = () => {
                   className="py-1 comp-nav mx-1 text-secondary fw-500"
                   disabled
                 >
-                  sarthakjain15.sj@gami.com
+                  {userEmail}
                 </div>
               </DropdownItem>
               <DropdownItem className="my-0 ml-0 pl-3" divider />
               <DropdownItem
                 className="my-0 ml-0 pl-3"
                 onClick={() => {
-                  console.log("Log out");
+                  console.log("LOGOUT()");
                 }}
               >
                 <Link to="/" className="py-1 mx-1 logout">
@@ -65,7 +74,9 @@ const Header = () => {
     } else {
       return (
         <li className="nav-item mx-3">
-          <button className="login-btn">Login</button>
+          <button className="login-btn" onClick={() => setShow(true)}>
+            Login
+          </button>
         </li>
       );
     }
@@ -84,6 +95,7 @@ const Header = () => {
           </>
         </div>
       </nav>
+      <LoginModal isModalOpen={show} toggleModal={toggle} setShow={setShow} />
     </>
   );
 };
