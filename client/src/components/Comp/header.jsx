@@ -72,7 +72,7 @@ const Header = () => {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
           <>
             <NavLink to="/" className="navbar-brand ms-5 fw-bold" href="#">
@@ -96,16 +96,6 @@ const Header = () => {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0 me-5">
-                <li className="nav-item mx-3">
-                  <NavLink
-                    to="/"
-                    className="nav-link"
-                    activeClassName="selected"
-                    exact
-                  >
-                    Home
-                  </NavLink>
-                </li>
                 <ConditionalBtn />
               </ul>
             </div>

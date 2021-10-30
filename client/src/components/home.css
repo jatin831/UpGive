@@ -51,7 +51,7 @@ h1{
   border-radius: 30px;
   transition: 0.5s;
   color: #fff;
-  background: #1b559c;
+  background: #333333;
 }
 
 a {
@@ -60,7 +60,7 @@ a {
 }
 
 .Footer {
-  background-color: whitesmoke;
+  background-color: #333333;
   padding: 10px 30px;
   position: fixed;
   bottom: 0 !important;

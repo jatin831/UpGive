@@ -18,14 +18,14 @@ const Home = ()=>{
               <div className="col-lg-6 pt-5 pt-lg-0 mb-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
                 <div>
                   <h2>Enhance your learning with</h2>
-                  <h1><strong>UpGive</strong></h1>
+                  <h1 style = {{color:"#333333"}}><strong>UpGive</strong></h1>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.,<br/> 
                     Fuga provident eaque facere, sunt sint quis nostrum dolorum.</p>
                   <a href="#about" className="btn-get-started scrollto">Get Started</a>
                 </div>
               </div>
               <div className="col-lg-6 order-1 order-lg-2 hero-img aos-init aos-ani0 FloatImg" data-aos="fade-left">
-                {/* <img src={landingVector} className="img-fluid animated" alt="" /> */}
+                <img src={landingVector} className="img-fluid animated" alt="" />
               </div>
             </div>
           </div>
@@ -33,10 +33,10 @@ const Home = ()=>{
         <div className="Footer mt-3">
           <div className="row p-0 m-0">
               <div className="col-12 col-md-6 d-flex justify-content-center justify-content-md-start px-0 py-2">
-                  <div className="Footer_Copyright pe-2 pe-md-4 ms-0 ms-md-5 fw-bold">
-                    <CopyrightIcon style={{fontSize: "16px", marginTop: "-5px"}}/> UpGive 2021
+                  <div className="Footer_Copyright pe-2 pe-md-4 ms-0 ms-md-5 fw-bold" style = {{color:"white"}}>
+                    <CopyrightIcon style={{fontSize: "16px", marginTop: "-5px", color:"white"}}/> UpGive 2021
                   </div>
-                  <div className="ms-0 ms-md-4 ps-2 ps-md-0">
+                  <div className="ms-0 ms-md-4 ps-2 ps-md-0" style = {{color:"white"}}>
                     upgive731@gmail.com
                   </div>
               </div>
