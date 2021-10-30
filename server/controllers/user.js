@@ -56,3 +56,22 @@ exports.addFriend = (req, res, next) => {
         next(err);
     })
 }
+
+exports.getTransactionStatus = (req, res, next) => {
+    User.findById(req.query.userId)
+    .then(user => {
+        if (!user) {
+            const err = new Error("Invalid UserId");
+            err.statusCode = 400;
+            next(err);
+        } 
+        res.json({
+            netBalance: user.netBalance,
+            credit: user.credit,
+            debit: user.debit
+        })
+    })
+    .catch(err => {
+        next(err);
+    })
+}
