@@ -30,7 +30,7 @@ const Home = ()=>{
             </div>
           </div>
         </section>
-        <div className="Footer mt-3">
+        <div className="Footer mt-3 d-none d-md-block">
           <div className="row p-0 m-0">
               <div className="col-12 col-md-6 d-flex justify-content-center justify-content-md-start px-0 py-2">
                   <div className="Footer_Copyright pe-2 pe-md-4 ms-0 ms-md-5 fw-bold" style = {{color:"white"}}>

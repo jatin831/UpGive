@@ -78,27 +78,9 @@ const Header = () => {
             <NavLink to="/" className="navbar-brand ms-5 fw-bold" href="#">
               UpGive
             </NavLink>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <IconButton>
-                <MenuRoundedIcon />
-              </IconButton>
-            </button>
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav ms-auto mb-2 mb-lg-0 me-5">
-                <ConditionalBtn />
-              </ul>
-            </div>
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 me-5">
+              <ConditionalBtn />
+            </ul>
           </>
         </div>
       </nav>
