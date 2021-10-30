@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from './components/home';
+import Dashboard from './components/Comp/dashboard';
 import { useEffect } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';

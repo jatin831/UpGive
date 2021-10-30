@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Modal, ModalBody, TabContent, TabPane } from "reactstrap";
 import { withRouter, Redirect } from "react-router-dom";
 import "./loginmodals.css";
-// import SingInImage from "../../../assets/signin.svg";
-// import SingUpImage from "../../../assets/signup.svg";
+import SingInImage from "../../assets/signin.svg";
+import SingUpImage from "../../assets/signup.svg";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
@@ -186,7 +186,6 @@ const LoginModal = (props) => {
     }
   };
 
-  console.log(loading);
   return (
     <>
       <Modal
@@ -227,7 +226,7 @@ const LoginModal = (props) => {
                 <div className="col-lg-6 d-none d-lg-block px-md-5">
                   <div className="row">
                     <div className="col-12 d-flex justify-content-center align-items-center  ">
-                      {/* <img src={SingUpImage} width="80%" /> */}
+                      <img src={SingUpImage} width="80%" />
                     </div>
                   </div>
                   <div className="row">
@@ -471,7 +470,7 @@ const LoginModal = (props) => {
                 <div className="col-lg-6 d-none d-lg-block px-md-5">
                   <div className="row">
                     <div className="col-12 d-flex justify-content-center align-items-center pt-2">
-                      {/* <img src={SingInImage} width="95%" /> */}
+                      <img src={SingInImage} width="95%" />
                     </div>
                   </div>
                   <div className="row">
