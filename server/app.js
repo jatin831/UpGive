@@ -24,7 +24,7 @@ app.use((err, req, res, next) => {
     res.status(status).json({message: message});
 })
 
-mongoose.connect('mongodb+srv://edeasy123:edeasygsits%40123@cluster0.1cmwu.mongodb.net/Edeasy?retryWrites=true&w=majority', 
+mongoose.connect('mongodb+srv://upgive123:upgivesgsits@cluster0.wnrin.mongodb.net/UpGive?retryWrites=true&w=majority', 
 { 
     useUnifiedTopology: true, 
     useNewUrlParser: true 
