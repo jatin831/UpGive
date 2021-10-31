@@ -5,7 +5,6 @@ const User = require('../models/user');
 const Transaction = require('../models/transaction');
 
 exports.createTransaction = (req, res, next) => {
-    console.log(req.body);
     let amount = req.body.amount;
     
     const friends = req.body.friends.map(friend => {
@@ -25,6 +24,20 @@ exports.createTransaction = (req, res, next) => {
         friends: friends
     })
 
+    let userWhoPaid;
+    User.findById(req.body.paidBy)
+        .then(user => {
+            if (!user) {
+                const err = new Error("Invalid UserId");
+                err.statusCode = 400;
+                return next(err);
+            }
+            userWhoPaid = user;
+        })
+        .catch(err => {
+            next(err);
+        })
+
     transaction.save()
         .then(async transactionResult => {
             for (const friend of friends) {
@@ -32,15 +45,39 @@ exports.createTransaction = (req, res, next) => {
                     .then(user => {
                         user.transactions.push(transactionResult._id);
                         if (friend.debt >= 0) {
-                            user.debt += friend.debt;
+                            user.debit += friend.debt;
+
+                            user.friendsYouOwe.push({
+                                friendId: userWhoPaid._id,
+                                amount: friend.debt,
+                                date: transactionResult.createdAt,
+                                transactionId: transactionResult._id,
+                                transactionDescription: transactionResult.description,
+                                groupName: transactionResult.groupName
+                            })
+
+                            userWhoPaid.friendsYouOwed.push({
+                                friendId: friend.id,
+                                amount: friend.debt,
+                                date: transactionResult.createdAt,
+                                transactionId: transactionResult._id,
+                                transactionDescription: transactionResult.description,
+                                groupName: transactionResult.groupName
+                            })
                         } else {
                             user.credit -= friend.debt;
                         }
                         user.netBalance -= friend.debt;
+
                         user.save();
                     })
             }
-            res.json({message: "Transaction Successful"});
+            userWhoPaid.save().then(results => {
+                res.json({message: "Transaction Successful"});
+            })
+            .catch(err => {
+                next(err);
+            })
         })
         .catch(err => {
             next(err);

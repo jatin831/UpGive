@@ -1,6 +1,60 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const friendsYouOweSchema = new Schema({
+    amount: {
+        type: Number,
+        required: true
+    },
+    friendId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    date: {
+        type: Date,
+        required: true
+    },
+    transactionId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Transaction'
+    },
+    transactionDescription: {
+        type: String,
+        required: true
+    },
+    groupName: {
+        type: String,
+        required: true
+    }
+})
+
+const friendsYouOwedSchema = new Schema({
+    amount: {
+        type: Number,
+        required: true
+    },
+    friendId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    date: {
+        type: Date,
+        required: true
+    },
+    transactionId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Transaction'
+    },
+    transactionDescription: {
+        type: String,
+        required: true
+    },
+    groupName: {
+        type: String,
+        required: true
+    }
+})
+
 const userSchema = new Schema({
         email: {
             type: String,
@@ -41,7 +95,9 @@ const userSchema = new Schema({
                 type: Schema.Types.ObjectId,
                 ref: 'Transaction'
             }
-        ]
+        ],
+        friendsYouOwe: [friendsYouOweSchema],
+        friendsYouOwed: [friendsYouOwedSchema]
     },
     {
         timestamps: true,
