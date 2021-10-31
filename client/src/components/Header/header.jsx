@@ -5,6 +5,7 @@ import "./header.css";
 import { useDispatch, useSelector } from "react-redux";
 import { LOGOUT, selectUserData } from "../../reduxSlices/authSlice";
 import Avatar from "@material-ui/core/Avatar";
+import { useLocation } from 'react-router-dom';
 import {
   UncontrolledDropdown,
   DropdownToggle,
@@ -14,6 +15,7 @@ import {
 
 const Header = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
 
   window.onscroll = () => {
@@ -103,7 +105,12 @@ const Header = () => {
             <NavLink to="/" className="navbar-brand ms-5 fw-bold" href="#">
               UpGive
             </NavLink>
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 me-5">
+            {
+              location.pathname === "/dashboard" ? (
+                <div className="text-light fs-4">Dashboard</div>
+              ) : null
+            }
+            <ul className="navbar-nav  mb-2 mb-lg-0 me-5">
               <ConditionalBtn />
             </ul>
           </>
