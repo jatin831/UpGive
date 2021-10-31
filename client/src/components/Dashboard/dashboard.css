@@ -66,10 +66,13 @@ body{
 .friend-card{
     display: flex; 
     flex-direction: row;
-    box-shadow: inset 0px 0px 5px 1px #333333;
-    border-radius: 500px;
+    margin-bottom: 18px;
 }
 
 .friend-list{
     margin:auto;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 1.1px 10px;
+
 }

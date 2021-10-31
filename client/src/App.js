@@ -22,7 +22,7 @@ const App =() => {
 
     axios.get("http://localhost:5000/user/getFriends",{
       params:{
-        userId:"617ce19ca08f2465fa748cbf"
+        userId:"617cc0b8b998f18d6814c439"
       }
     }).then(res=>{
       console.log(res);

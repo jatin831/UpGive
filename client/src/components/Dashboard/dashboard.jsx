@@ -2,12 +2,40 @@ import React, { useState, useEffect } from "react";
 import Header from "../Header/header";
 import "./dashboard.css";
 import Avatar from "@material-ui/core/Avatar";
+import axios from "axios";
+// import { useDispatch } from "react-redux";
 
 const Dashboard = () => {
   const [transactions, setTransactions] = useState([]);
   const [friends, setFriends] = useState([]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/user/getFriends", {
+        params: {
+          userId: "617cc0b8b998f18d6814c439",
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        setFriends(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    axios
+      .post("http://localhost:5000/user/addFriend", {
+        friendsEmail: "jatinbajaj2001@gmail.com",
+        userId: "617ce19ca08f2465fa748cbf",
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <>
@@ -34,7 +62,7 @@ const Dashboard = () => {
                       >
                         S
                       </Avatar>
-                      <h5 className="friend-list">Sarthak Jain</h5>
+                      <div className="friend-list">Sarthak Jain</div>
                     </div>
                   </div>
                 );
