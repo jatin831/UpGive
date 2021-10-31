@@ -1,5 +1,11 @@
 .dash{
     margin-top: 5rem;
+    background-color: #E5E5E5;
+    height: 100vh;
+}
+
+body{
+    background-color: #E5E5E5 !important;
 }
 
 
@@ -13,25 +19,22 @@
     font-size: 25px;
     font-weight: bold;
     margin-left: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .friends{
     display: flex;
     flex-direction:column;
-    align-items: center;
-    justify-content: center;
     padding: 5px;
+    text-align: left;
 }
 
-.message{
-    margin:auto;
-}
 
-.container{
+
+.score{
     display: flex;
     flex-direction: column;
-    background-color: #E5E5E5;
+    background-color: white;
     align-items: left;
     justify-content: space-around;
 }
@@ -40,5 +43,18 @@
     background-color: #1B559C !important;
     color: white !important;
     font-weight: bold !important;
+    width: 60% !important;
+    margin: 15px !important;
 
 }
+
+.btn-secondary{
+    width: 30% !important;
+    border-radius: 2rem !important;
+}
+
+.message{
+    margin: 10px auto;
+    width: 50%;
+}
+
