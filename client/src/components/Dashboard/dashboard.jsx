@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Header/header";
 import "./dashboard.css";
+import Avatar from "@material-ui/core/Avatar";
 
 const Dashboard = () => {
   const [transactions, setTransactions] = useState([]);
   const [friends, setFriends] = useState([]);
 
-  useEffect(() => { 
-
-  }, [])
+  useEffect(() => {}, []);
 
   return (
     <>
@@ -17,22 +16,31 @@ const Dashboard = () => {
         <div className="row">
           <div className="col-lg-2 friends">
             <h4 className="friend mb-4 ms-2">Friends</h4>
-            {
-              friends.length === 0 ? (
-                <div className="mb-4">
-                  <h5>No friends Yet!!</h5>
-                </div>
-              ) : (
-                friends.map(friend => {
-                  return (
-                    <div>
-
+            {friends.length === 0 ? (
+              <div className="mb-4">
+                <h5>No friends Yet!!</h5>
+              </div>
+            ) : (
+              friends.map((friend) => {
+                return (
+                  <div>
+                    <div className="friend-card">
+                      <Avatar
+                        style={{
+                          height: "35px",
+                          width: "35px",
+                          background: "#1B559C",
+                        }}
+                      >
+                        S
+                      </Avatar>
+                      <h5 className="friend-list">Sarthak Jain</h5>
                     </div>
-                  )
-                })
-              )
-            }
-            
+                  </div>
+                );
+              })
+            )}
+
             <button type="button" className="btn btn-secondary btn-md">
               Add Friends
             </button>
@@ -41,15 +49,21 @@ const Dashboard = () => {
             <div className="row px-5 m-0 d-flex justify-content-between">
               <div className="d-flex justify-content-around col-12 pt-3 pb-2 containerWhite">
                 <div className="d-flex flex-column align-items-center">
-                  <h3 className="mb-0"><h4 className="d-inline">&#x20B9;</h4> 00.00</h3>
+                  <h3 className="mb-0">
+                    <h4 className="d-inline">&#x20B9;</h4> 00.00
+                  </h3>
                   Net Balance
                 </div>
                 <div className="d-flex flex-column align-items-center">
-                  <h3 className="mb-0"><h4 className="d-inline">&#x20B9;</h4> 00.00</h3>
+                  <h3 className="mb-0">
+                    <h4 className="d-inline">&#x20B9;</h4> 00.00
+                  </h3>
                   Credit Amount
                 </div>
                 <div className="d-flex flex-column align-items-center">
-                  <h3 className="mb-0"><h4 className="d-inline">&#x20B9;</h4> 00.00</h3>
+                  <h3 className="mb-0">
+                    <h4 className="d-inline">&#x20B9;</h4> 00.00
+                  </h3>
                   Debit Amount
                 </div>
               </div>
@@ -64,15 +78,13 @@ const Dashboard = () => {
               <div className="d-flex flex-column align-items-center mt-3 containerWhite py-3 pt-2">
                 <h2 className="fw-bold">Transaction History</h2>
                 <div className="mt-3">
-                  {
-                    transactions.length === 0 ? (
-                      <h5>No Transactions...</h5>
-                    ): (
-                      transactions.map(transactions => {
-                        return <div>Transaction</div>
-                      })
-                    )
-                  }
+                  {transactions.length === 0 ? (
+                    <h5>No Transactions...</h5>
+                  ) : (
+                    transactions.map((transactions) => {
+                      return <div>Transaction</div>;
+                    })
+                  )}
                 </div>
               </div>
             </div>
