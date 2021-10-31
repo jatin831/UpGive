@@ -88,3 +88,13 @@ exports.getTransactionStatus = (req, res, next) => {
         next(err);
     })
 }
+
+exports.getTransactionsHistory = (req, res, next) => {
+    User.findById(req.query.userId).populate('transactions')
+        .then(user => {
+            res.json(user);
+        })
+        .catch(err => {
+            next(err);
+        })
+}

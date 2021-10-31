@@ -1,6 +1,29 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const friendSchema = new Schema({
+    id: {
+        type: Schema.Types.ObjectId,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    percentage: {
+        type: Number,
+        required: true
+    },
+    debt: {
+        type: Number,
+        required: true
+    }
+})
+
 const transactionSchema = new Schema({
         description: {
             type: String,
@@ -18,12 +41,11 @@ const transactionSchema = new Schema({
             type: Schema.Types.ObjectId,
             required: true
         },
-        friends: [
-            {
-                
-            }
-        ],
-
+        splitType: {
+            type: String,
+            required: true
+        },
+        friends: [friendSchema]
     },
     {
         timestamps: true,
@@ -31,4 +53,4 @@ const transactionSchema = new Schema({
     }
 )
 
-module.exports = mongoose.model('User', transactionSchema);
+module.exports = mongoose.model('Transaction', transactionSchema);
