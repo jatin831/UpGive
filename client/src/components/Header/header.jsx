@@ -30,8 +30,6 @@ const Header = ({show, setShow, toggle}) => {
   const token = userData.token;
   const userEmail = userData.userEmail;
 
-  console.log(show);
-
   const ConditionalBtn = () => {
     if (token) {
       return (

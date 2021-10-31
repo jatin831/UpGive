@@ -26,10 +26,9 @@ const Home = ({show, setShow, toggle})=>{
           <div className="row">
             <div className="col-lg-6 pt-5 pt-lg-0 mb-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
               <div>
-                <h2>Enhance your learning with</h2>
+                <h2>Split Bills the Easy way with</h2>
                 <h1 style = {{color:"#333333"}}><strong>UpGive</strong></h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.,<br/> 
-                  Fuga provident eaque facere, sunt sint quis nostrum dolorum.</p>
+                <p>Split, track &amp; settle bills with friends, roomates or colleagues.</p>
                 <div onClick={getStarted} className="btn-get-started scrollto">Get Started</div>
               </div>
             </div>

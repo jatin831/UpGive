@@ -62,3 +62,31 @@ body{
     background-color: white;
     border-radius: 10px;
 }
+
+.friend-card{
+    display: flex; 
+    flex-direction: row;
+    margin-bottom: 18px;
+}
+
+.friend-list{
+    margin:auto;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 1.1px 10px;
+
+}
+
+.Transaction {
+    width: 100%;
+    background-color: #E5E5E5;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.TransactionHistory {
+    margin-bottom: 100px;
+}
