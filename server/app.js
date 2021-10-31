@@ -9,9 +9,11 @@ app.use(cors());
 
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
+const transactionRoutes = require('./routes/transaction');
 
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
+app.use('/', transactionRoutes);
 
 app.use((req, res, next) => {
     const err = new Error("Not Found");
