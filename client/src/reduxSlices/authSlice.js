@@ -74,7 +74,8 @@ export const AUTOLOGIN = () => async dispatch => {
     })
     dispatch(SET_LOADING(false));
   } else
-    dispatch(SET_LOADING(false));
+    setTimeout(() => dispatch(SET_LOADING(false)), 1000);
+    
 }
 
 export const ASYNC_LOGIN = userData => dispatch => {
@@ -130,8 +131,10 @@ export const ASYNC_SIGNUP = authData => dispatch => {
     dispatch(SET_LOGGING(false));
   })
   .catch(err => {
-    console.log(err.response.data.message);
-    dispatch(SET_ERROR(err.response.data.message));
+    if (err.response && err.response.data) {
+      console.log(err.response.data.message);
+      dispatch(SET_ERROR(err.response.data.message));
+    }
     dispatch(SET_LOADING(false));
     dispatch(SET_LOGGING(false));
   })

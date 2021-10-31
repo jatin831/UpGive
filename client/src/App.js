@@ -7,6 +7,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/Header/header';
+import Footer from './components/Footer/footer';
 import { useDispatch, useSelector } from 'react-redux';
 import { AUTOLOGIN } from './reduxSlices/authSlice';
 import { Switch, Route, Redirect } from 'react-router-dom';
@@ -62,6 +63,7 @@ const App =() => {
         </Switch>
       )
     }
+    <Footer />
    </> 
   )
 }
