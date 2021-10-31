@@ -1,18 +1,20 @@
 import React from 'react';
-import Home from './components/home';
+import Home from './components/Home/home';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Dashboard from './components/Header/dashboard';
 import { useEffect } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import Header from './components/Header/header';
+import { useDispatch, useSelector } from 'react-redux';
 import { AUTOLOGIN } from './reduxSlices/authSlice';
-import { Switch, Route } from 'react-redux-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { selectUserData } from './reduxSlices/authSlice';
 
 const App =() => {
   const dispatch = useDispatch();
-  // const userData = useSelector()
+  const userData = useSelector(selectUserData);
 
   useEffect(()=>{
     dispatch(AUTOLOGIN());
@@ -37,16 +39,29 @@ const App =() => {
     // .catch(err=>{
     //   console.log(err);
     // })
-  })
+  }, [])
 
   return (
    <>
+    <Header />
     {
-      
+      userData.loading ? (
+        <div className="d-flex justify-content-center align-items-center" style={{height: "100vh"}}>
+          <CircularProgress size={80} />
+        </div>
+      ) : userData.token ? (
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/dashboard" component={Dashboard}/>
+            <Redirect to="/"/>
+          </Switch>
+      ) : (
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Redirect to="/"/>
+        </Switch>
+      )
     }
-    <Switch>
-      <Dashboard/>
-    </Switch>
    </> 
   )
 }

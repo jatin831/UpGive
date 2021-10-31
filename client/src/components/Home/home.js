@@ -1,6 +1,5 @@
 import React from 'react';
 import './home.css';
-import Header from '../Header/header';
 import landingVector from "../../assets/landing.jpg";
 import FacebookIcon from '@material-ui/icons/Facebook';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
@@ -10,8 +9,7 @@ import CopyrightIcon from '@material-ui/icons/Copyright';
 
 const Home = ()=>{
     return (
-        <div className="landing">
-            <Header/> 
+        <div className="landing"> 
         <section id="hero">
           <div className="container pt-4">
             <div className="row">
@@ -21,7 +19,7 @@ const Home = ()=>{
                   <h1 style = {{color:"#333333"}}><strong>UpGive</strong></h1>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.,<br/> 
                     Fuga provident eaque facere, sunt sint quis nostrum dolorum.</p>
-                  <a href="#about" className="btn-get-started scrollto">Get Started</a>
+                  <a href="/dashboard" className="btn-get-started scrollto">Get Started</a>
                 </div>
               </div>
               <div className="col-lg-6 order-1 order-lg-2 hero-img aos-init aos-ani0 FloatImg" data-aos="fade-left">

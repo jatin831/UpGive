@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
-import IconButton from "@material-ui/core/IconButton";
 import LoginModal from "./loginModals";
 import "./header.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,6 +15,7 @@ import {
 const Header = () => {
   const dispatch = useDispatch();
   const [scrolled, setScrolled] = useState(false);
+
   window.onscroll = () => {
     if (window.scrollY) {
       setScrolled(true);
@@ -24,12 +23,16 @@ const Header = () => {
       setScrolled(false);
     }
   };
+  
   const [show, setShow] = useState(false);
   const toggle = () => setShow((prevState) => !prevState);
-  const storeData = useSelector(selectUserData);
-  const userName = storeData.userName;
-  const token = storeData.token;
-  const userEmail = storeData.userEmail;
+  const userData = useSelector(selectUserData);
+  const userName = userData.userName;
+  const token = userData.token;
+  const userEmail = userData.userEmail;
+
+  console.log(show);
+
   const ConditionalBtn = () => {
     if (token) {
       return (
@@ -90,7 +93,8 @@ const Header = () => {
         </li>
       );
     }
-  };
+  }
+
   return (
     <>
       <nav className="navbar navbar-expand-lg">
