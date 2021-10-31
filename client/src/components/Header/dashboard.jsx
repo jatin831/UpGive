@@ -6,16 +6,16 @@ const Dashboard = () => {
   return (
     <>
       <Header />
-      <div className="container dash">
+      <div className="mx-3 dash">
         <div className="row">
-          <div className="col-lg-4 friends">
-            <span className="friend">Friends</span>
-            <span>No friends Yet!!</span>
+          <div className="col-lg-3 friends">
+            <h4 className="friend">Friends</h4>
+            <h4>No friends Yet!!</h4>
             <button type="button" className="btn btn-secondary btn-sm">
               Add Friends
             </button>
           </div>
-          <div className=" addsec col-lg-4 center">
+          <div className=" addsec col-lg-3">
             <button type="button" class="btn btn-primary btn-sm">
               Add expense
             </button>
@@ -25,9 +25,9 @@ const Dashboard = () => {
             <span className="message">No Transaction Yet!!!</span>
           </div>
           <div className="col-lg-4 score">
-            <span>Net Balance:</span>
-            <span>Debit amount:</span>
-            <span>Credit amount:</span>
+            <h4>Net Balance:</h4>
+            <h4>Debit amount:</h4>
+            <h4>Credit amount:</h4>
           </div>
         </div>
       </div>
