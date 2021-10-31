@@ -6,11 +6,9 @@ import { useSelector } from 'react-redux';
 import { selectUserData } from '../../reduxSlices/authSlice';
 import LoginModal from '../Header/loginModals';
 
-const Home = ()=>{
+const Home = ({show, setShow, toggle})=>{
   const history = useHistory();
   const userData = useSelector(selectUserData);
-  const [show, setShow] = useState(false);
-  const toggle = () => setShow((prevState) => !prevState);
 
   const getStarted = () => {
     if (userData.token) {
@@ -22,7 +20,6 @@ const Home = ()=>{
 
   return (
     <>
-      <LoginModal isModalOpen={show} toggleModal={toggle} setShow={setShow} />
       <div className="landing"> 
       <section id="hero">
         <div className="container pt-4">

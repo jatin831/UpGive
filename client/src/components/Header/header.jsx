@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import LoginModal from "./loginModals";
 import "./header.css";
 import { useDispatch, useSelector } from "react-redux";
 import { LOGOUT, selectUserData } from "../../reduxSlices/authSlice";
@@ -13,7 +12,7 @@ import {
   DropdownItem,
 } from "reactstrap";
 
-const Header = () => {
+const Header = ({show, setShow, toggle}) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
@@ -25,9 +24,7 @@ const Header = () => {
       setScrolled(false);
     }
   };
-  
-  const [show, setShow] = useState(false);
-  const toggle = () => setShow((prevState) => !prevState);
+
   const userData = useSelector(selectUserData);
   const userName = userData.userName;
   const token = userData.token;
@@ -48,6 +45,7 @@ const Header = () => {
                     width: "35px",
                     color: "black",
                     background: "white",
+                    fontWeight: 'bold'
                   }}
                 >
                   {userName?.slice(0, 1).toUpperCase()}
@@ -116,7 +114,6 @@ const Header = () => {
           </>
         </div>
       </nav>
-      <LoginModal isModalOpen={show} toggleModal={toggle} setShow={setShow} />
     </>
   );
 };

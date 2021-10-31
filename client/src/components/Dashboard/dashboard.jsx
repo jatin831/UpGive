@@ -7,7 +7,7 @@ const Dashboard = () => {
   const [friends, setFriends] = useState([]);
 
   useEffect(() => { 
-
+    // 
   }, [])
 
   return (

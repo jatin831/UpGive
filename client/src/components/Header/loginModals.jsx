@@ -88,6 +88,7 @@ const LoginModal = (props) => {
   const dispatch = useDispatch();
   const selectorData = useSelector(selectUserData);
   const error = selectorData.error;
+  console.log("Error: ", error);
   const loading = selectorData.loading;
   const [contactError, setContactError] = useState(false);
   const [emailError, setEmailError] = useState(false);
@@ -139,7 +140,6 @@ const LoginModal = (props) => {
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
-    // console.log("Inside form submit");
     let flag = 0;
 
     if (!validateEmail(values.email)) {

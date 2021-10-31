@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState} from 'react';
 import Home from './components/Home/home';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Dashboard from './components/Dashboard/dashboard';
-import { useEffect } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
@@ -12,10 +11,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AUTOLOGIN } from './reduxSlices/authSlice';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { selectUserData } from './reduxSlices/authSlice';
+import LoginModal from "./components/Header/loginModals";
 
 const App =() => {
   const dispatch = useDispatch();
   const userData = useSelector(selectUserData);
+  const [show, setShow] = useState(false);
+  const toggle = () => setShow((prevState) => !prevState);
 
   useEffect(()=>{
     dispatch(AUTOLOGIN());
@@ -44,7 +46,8 @@ const App =() => {
 
   return (
    <>
-    <Header />
+    <LoginModal isModalOpen={show} toggleModal={toggle} setShow={setShow} />
+    <Header show={show} toggle={toggle} setShow={setShow} />
     {
       userData.loading ? (
         <div className="d-flex justify-content-center align-items-center" style={{height: "100vh"}}>
@@ -52,13 +55,13 @@ const App =() => {
         </div>
       ) : userData.token ? (
           <Switch>
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" render={()=><Home show={show} toggle={toggle} setShow={setShow} />}/>
             <Route exact path="/dashboard" component={Dashboard}/>
             <Redirect to="/"/>
           </Switch>
       ) : (
         <Switch>
-          <Route exact path="/" component={Home}/>
+          <Route exact path="/" render={()=><Home show={show} toggle={toggle} setShow={setShow} />}/>
           <Redirect to="/"/>
         </Switch>
       )
