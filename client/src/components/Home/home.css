@@ -48,6 +48,7 @@ h1{
 }
 
 #hero .btn-get-started {
+  cursor: pointer;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   font-size: 16px;
