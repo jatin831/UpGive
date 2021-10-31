@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './components/Home/home';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Dashboard from './components/Header/dashboard';
+import Dashboard from './components/Dashboard/dashboard';
 import { useEffect } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
